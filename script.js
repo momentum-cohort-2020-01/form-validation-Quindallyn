@@ -1,20 +1,22 @@
 let boxes = document.querySelectorAll('.box')
-console.log(boxes)
 
 let form = document.querySelector("#parking-form")
-
+let errorMessages = document.querySelectorAll("label")
 form.addEventListener ("submit", function(event){
     event.preventDefault()
     for (let box of boxes){
-        console.log (box.value)
         if (box.value === ''){
-            console.log("invalid")
             box.parentElement.classList.add("input-invalid")
+            box.insertAdjacentHTML("afterend", "is required")
+            console.log("is required")
+            // errorMessages.insertAdjacentHTML("afterend","is required");
+            // console.log("is required")
         }
         else{
-            console.log("valid")
             box.parentElement.classList.add("input-valid")
+//  for (let _blue of errorMessages)   
+//             if (box.value === '')
+//           console.log("is required")
         }
-    // let button = document.querySelector (".box")   
     }  
 })
